@@ -1,0 +1,81 @@
+body {
+    background-color: var(--bg-dark);
+    background-image:
+        radial-gradient(circle at 15% 15%, rgba(120, 75, 160, 0.25), transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(43, 210, 255, 0.2), transparent 40%),
+        radial-gradient(circle at 50% 90%, rgba(0, 242, 96, 0.15), transparent 50%);
+    color: var(--text-white);
+}
+
+/* Navbar Theme */
+.nav-links {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 50px;
+    backdrop-filter: blur(12px);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: white;
+}
+
+/* Hero */
+.hero-overlay {
+    background: linear-gradient(90deg, #0B0E14 0%, rgba(11,14,20,.9) 40%, transparent);
+}
+
+.btn-hero {
+    background: var(--secondary-gradient);
+    box-shadow: 0 0 25px rgba(43, 210, 255, 0.4);
+}
+
+.btn-hero:hover {
+    transform: scale(1.05);
+}
+
+/* Restaurant Card Effects */
+.restaurant-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--secondary-gradient);
+    opacity: 0.4;
+}
+
+.restaurant-card:hover::before {
+    background: var(--primary-gradient);
+    opacity: 1;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-12px) scale(1.02);
+}
+
+/* Glass Cards */
+.auth-card,
+.glass-summary-card,
+.light-glass-card {
+    backdrop-filter: blur(25px);
+    border-radius: 24px;
+}
+
+/* Neon Theme */
+.neon-tab-btn {
+    border: 2px solid var(--neon-blue);
+}
+
+.neon-tab-btn.active {
+    border-color: var(--neon-orange);
+}
+
+/* Animations */
+@keyframes slowZoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+@keyframes successPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}

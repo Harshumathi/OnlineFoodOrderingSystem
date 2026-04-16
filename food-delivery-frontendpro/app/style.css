@@ -1,0 +1,2387 @@
+@charset "UTF-8";
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    /* Deep Navy Theme with Enhanced Vibrancy */
+    --bg-dark: #0B0E14;
+    /* Very dark navy/black */
+    --bg-card: #151A25;
+
+    /* Vibrant Gradients */
+    --primary-gradient: linear-gradient(135deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+    /* Amazing Purple-Blue-Pink */
+    --secondary-gradient: linear-gradient(135deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%);
+    /* Neon Pastel */
+
+    /* Card Border Gradients - High Saturation */
+    --card-border-gradient: linear-gradient(135deg, #00F260 0%, #0575E6 100%);
+    /* Emerald to Blue */
+    --card-border-gradient-hover: linear-gradient(135deg, #FF0099 0%, #493240 100%);
+    /* Magenta pop */
+
+    --text-white: #ffffff;
+    --text-gray: #D1D5DB;
+    /* Lighter gray for better contrast on colors */
+    --accent-green: #00E676;
+    --accent-pink: #FF4081;
+
+    --nav-bg: rgba(21, 26, 37, 0.7);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+    --navbar-height: 70px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-dark);
+    /* Colorful Ambient Background "Glows" */
+    background-image:
+        radial-gradient(circle at 15% 15%, rgba(120, 75, 160, 0.25), transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(43, 210, 255, 0.2), transparent 40%),
+        radial-gradient(circle at 50% 90%, rgba(0, 242, 96, 0.15), transparent 50%);
+    background-attachment: fixed;
+    /* Parallax-like fix */
+    color: var(--text-white);
+    min-height: 100vh;
+    padding-bottom: 120px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+ul {
+    list-style: none;
+}
+
+/* =========================================
+   App Wrapper (The "Screen" look)
+   ========================================= */
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 14px 20px 140px;
+}
+
+.menu-page {
+    padding-top: 12px;
+    padding-bottom: 190px;
+}
+
+/* =========================================
+   Navbar
+   ========================================= */
+.navbar {
+    display: block;
+    min-height: var(--navbar-height);
+    padding: 0.55rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: none;
+    z-index: 1200;
+    backdrop-filter: blur(14px);
+    background: rgba(11, 14, 20, 0.78);
+    border-radius: 0;
+}
+
+.navbar-inner {
+    width: min(1220px, 100%);
+    margin: 0 auto;
+    padding: 0 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar-spacer {
+    height: calc(var(--navbar-height) + 28px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.3rem;
+    font-weight: 800;
+    /* Bolder */
+    letter-spacing: 1px;
+    color: white;
+}
+
+.logo-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--primary-gradient);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(255, 60, 172, 0.6);
+    /* Glow */
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.4rem;
+    background: rgba(255, 255, 255, 0.04);
+    padding: 0.52rem 1.2rem;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links a {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    font-weight: 600;
+    position: relative;
+    transition: 0.4s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: white;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 20%;
+    width: 60%;
+    height: 3px;
+    background: var(--secondary-gradient);
+    border-radius: 2px;
+    box-shadow: 0 0 10px #2BD2FF;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.nav-auth-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #e5e7eb;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    padding: 0.34rem 0.72rem;
+}
+
+.nav-auth-link-signup {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.icon-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 1px solid transparent;
+}
+
+.icon-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.cart-btn {
+    position: relative;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--primary-gradient);
+    color: white;
+    font-size: 0.75rem;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.hello-name {
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.92rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+    padding: 0.32rem 0.78rem;
+}
+
+.logout-btn {
+    background: rgba(255, 125, 125, 0.12);
+    color: #ffb2b2;
+    border: 1px solid rgba(255, 125, 125, 0.35);
+    border-radius: 999px;
+    padding: 0.28rem 0.72rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+/* =========================================
+   Hero Section (Banner)
+   ========================================= */
+.hero-banner {
+    position: relative;
+    height: 480px;
+    /* Slightly taller */
+    border-radius: 36px;
+    overflow: hidden;
+    margin-bottom: 5rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(120deg, rgba(21, 26, 37, 0.9), rgba(21, 26, 37, 0.55));
+    padding: 0 2.2rem;
+}
+
+.hero-layout {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 430px;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Hero Slider Container */
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    /* Horizontal alignment for sliding */
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 0;
+}
+
+/* Individual Slides */
+.hero-slide {
+    min-width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    /* Initial images defined inline or via nth-child in usage, 
+       but we keep the generic styles here */
+}
+
+/* Background Image Fallback (if needed or for specificity) */
+.hero-slide:nth-child(1) {
+    background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=2000&q=80');
+}
+
+.hero-slide:nth-child(2) {
+    background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2000&q=80');
+}
+
+.hero-slide:nth-child(3) {
+    background-image: url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=2000&q=80');
+}
+
+/* Gradient Overlay - Dark on left for text readability */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    /* More dramatic gradient */
+    background: linear-gradient(90deg, #0B0E14 0%, rgba(11, 14, 20, 0.9) 35%, rgba(11, 14, 20, 0.4) 60%, transparent 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding-left: 1.2rem;
+    max-width: 100%;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+    color: transparent;
+    background: linear-gradient(to bottom right, #fff 50%, #9ca3af 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    letter-spacing: -1.5px;
+}
+
+.hero-content p {
+    color: var(--text-gray);
+    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+    max-width: 90%;
+}
+
+.hero-media-wrap {
+    position: relative;
+    height: 360px;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.35);
+}
+
+.hero-media-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(1.06);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.hero-media-img.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.hero-media-dots {
+    position: absolute;
+    left: 50%;
+    bottom: 12px;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 2;
+}
+
+.btn-hero {
+    background: var(--secondary-gradient);
+    color: #000;
+    padding: 1rem 2.5rem;
+    border-radius: 16px;
+    font-weight: 800;
+    font-size: 1.05rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 25px rgba(43, 210, 255, 0.4);
+    /* Glow matching gradient */
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-hero:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(43, 210, 255, 0.7);
+}
+
+.hero-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 2;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dot.active {
+    background: var(--accent-green);
+    width: 32px;
+    border-radius: 6px;
+    box-shadow: 0 0 10px var(--accent-green);
+}
+
+/* =========================================
+   Restaurant Grid (Gradient Borders)
+   ========================================= */
+.restaurant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 3rem;
+}
+
+.restaurant-card {
+    position: relative;
+    background: var(--bg-card);
+    border-radius: 28px;
+    padding: 3px;
+    /* Space for the gradient border */
+    overflow: hidden;
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* The Gradient Border Hack */
+    background: #1e2433;
+    z-index: 1;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Pseudo-element for the gradient border */
+.restaurant-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 28px;
+    padding: 3px;
+    /* Slightly Thicker Border */
+    background: var(--secondary-gradient);
+    /* Use vibrant pastel gradient */
+
+    /* Standard mask + webkit mask for cross-browser */
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+
+    opacity: 0.4;
+    /* Stronger initial opacity */
+    transition: opacity 0.4s, background 0.4s;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 40px -5px rgba(43, 210, 255, 0.15);
+}
+
+.restaurant-card:hover::before {
+    opacity: 1;
+    background: var(--primary-gradient);
+    /* Shift to Purple/Pink on hover */
+}
+
+/* The inner content wrapper */
+.card-content-wrapper {
+    background: #131720;
+    /* Slightly darker than card bg for depth */
+    border-radius: 25px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-image-container {
+    height: 220px;
+    position: relative;
+    padding: 12px 12px 0 12px;
+    /* Image floats inside */
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+
+.restaurant-card:hover .card-image {
+    transform: scale(1.05);
+    /* Zoom effect inner */
+}
+
+.card-info {
+    padding: 1.5rem;
+    color: white;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.restaurant-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-right: 10px;
+    background: linear-gradient(to right, #fff, #e0e7ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    /* Gradient Text */
+}
+
+.rating-badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #FFD700;
+    /* Gold */
+    font-weight: 700;
+    font-size: 1rem;
+    background: rgba(255, 215, 0, 0.1);
+    padding: 4px 8px;
+    border-radius: 8px;
+}
+
+.cuisine-type {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+}
+
+.meta-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 1rem;
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.time-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent-green);
+    /* Green time */
+}
+
+/* =========================================
+   Auth Pages (Login/Sign Up)
+   ========================================= */
+body.auth-page {
+    background: #000;
+    overflow: hidden;
+}
+
+.auth-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    /* Full viewport height for perfect centering */
+    width: 100%;
+    padding: 20px;
+}
+
+.auth-card {
+    background: rgba(20, 25, 35, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(25px);
+    border-radius: 30px;
+    padding: 3.5rem;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+    margin: auto;
+    /* Ensure it floats in the middle */
+}
+
+.form-group input {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: white;
+    padding: 1rem;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.form-group input:focus {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #2BD2FF;
+    outline: none;
+    box-shadow: 0 0 15px rgba(43, 210, 255, 0.2);
+}
+
+.btn-auth {
+    background: var(--primary-gradient);
+    border: none;
+    padding: 1rem;
+    border-radius: 12px;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 5px 20px rgba(255, 60, 172, 0.4);
+}
+
+.btn-auth:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 60, 172, 0.6);
+}
+
+/* =========================================
+   Menu / Cart Adjustments
+   ========================================= */
+/* Reuse similar styles for other pages, ensuring text is white */
+.menu-hero-content,
+.cart-title,
+.page-title {
+    color: white;
+}
+
+.menu-item,
+.cart-item,
+.checkout-section,
+.cart-summary {
+    background: #141923;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: white;
+    border-radius: 20px;
+}
+
+.menu-item-title,
+.cart-item-name {
+    color: white;
+    font-weight: 600;
+}
+
+.menu-item-desc {
+    color: var(--text-gray);
+}
+
+/* =========================================
+   MENU PAGE SPECIFIC (Neon Noodle Style)
+   ========================================= */
+.menu-header-image {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+.restaurant-branding {
+    text-align: center;
+    margin-top: -80px;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 2rem;
+}
+
+.restaurant-branding h1 {
+    font-size: 3rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    font-weight: 800;
+}
+
+/* Neon Category Tabs */
+.category-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background: transparent;
+    border: 2px solid var(--accent-green);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1rem;
+    box-shadow: 0 0 10px rgba(0, 230, 118, 0.2);
+}
+
+.tab-btn:hover,
+.tab-btn.active {
+    background: var(--accent-green);
+    color: #000;
+    box-shadow: 0 0 20px var(--accent-green);
+    transform: translateY(-2px);
+}
+
+/* Circular Menu Items */
+.menu-list-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.menu-list-item {
+    display: flex;
+    align-items: center;
+    background: rgba(21, 26, 37, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 100px;
+    /* Pill shape container */
+    padding: 1rem;
+    gap: 1.5rem;
+    transition: 0.3s;
+}
+
+.menu-list-item:hover {
+    background: rgba(21, 26, 37, 0.9);
+    border-color: var(--accent-green);
+    transform: scale(1.02);
+}
+
+.menu-img-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255, 140, 0, 0.8);
+    /* Orange border like image */
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.4);
+}
+
+.menu-item-details {
+    flex: 1;
+}
+
+.menu-item-details h3 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.menu-item-details p {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    max-width: 90%;
+}
+
+.menu-item-details .price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+}
+
+.btn-add-cart {
+    background: transparent;
+    border: 2px solid var(--accent-green);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.btn-add-cart:hover {
+    background: var(--accent-green);
+    color: black;
+    box-shadow: 0 0 15px var(--accent-green);
+}
+
+/* =========================================
+   CART & CHECKOUT (Glass Cards)
+   ========================================= */
+.cart-page-container {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 2rem;
+    align-items: start;
+}
+
+.cart-card-item {
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.cart-img-square {
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.qty-counter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.qty-btn {
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.glass-summary-card {
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    padding: 2rem;
+    position: sticky;
+    top: 100px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    color: #eee;
+    font-size: 1.1rem;
+}
+
+.summary-total {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-checkout-gradient {
+    width: 100%;
+    margin-top: 2rem;
+    background: linear-gradient(90deg, #FF9966, #FF5E62);
+    border: none;
+    padding: 1rem;
+    border-radius: 12px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(255, 94, 98, 0.4);
+    transition: 0.3s;
+}
+
+.btn-checkout-gradient:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(255, 94, 98, 0.6);
+}
+
+/* =========================================
+   AUTH PAGES (SavorSecure / Sign Up)
+   ========================================= */
+.auth-bg-grid {
+    /* Simulating the food grid background */
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
+        url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Old auth-glass-modal removed (redefined below for SavorSecure theme) */
+/* Old auth-glass-modal removed (redefined below for SavorSecure theme) */
+
+/* Subtle top highlight for glass effect */
+.auth-glass-modal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+}
+
+.auth-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.auth-message {
+    margin: 0.8rem 0 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    font-size: 0.92rem;
+    border: 1px solid transparent;
+    text-align: left;
+}
+
+.auth-message.success-msg {
+    background: rgba(0, 230, 118, 0.16);
+    border-color: rgba(0, 230, 118, 0.45);
+    color: #b6ffd9;
+}
+
+.auth-message.error-msg {
+    background: rgba(255, 64, 129, 0.16);
+    border-color: rgba(255, 64, 129, 0.45);
+    color: #ffc3d8;
+}
+
+.auth-lock-icon {
+    color: #f5c16c;
+    margin-right: 6px;
+}
+
+.input-glass {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-glass:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.input-glass::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.input-pill::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.btn-auth-gradient {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 50px;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+}
+
+.btn-auth-gradient.btn-login {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 14px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: white;
+    background: linear-gradient(90deg, #FF9966 0%, #E100FF 100%);
+    box-shadow: 0 10px 30px rgba(225, 0, 255, 0.5);
+    cursor: pointer;
+    transition: 0.3s ease;
+
+}
+
+
+.btn-signup {
+    background: linear-gradient(90deg, #FF9966, #8B5CF6);
+    /* Orange to Purple */
+    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+}
+
+.social-btn {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    /* Transparent gray */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.social-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.divider {
+    margin: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 10px;
+}
+
+/* pill-label style - SavorSecure Dark Theme */
+.form-group-pill {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.input-pill {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    background: rgba(255, 255, 255, 0.18);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+}
+
+.input-pill:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.28);
+}
+
+.label-pill {
+    position: absolute;
+    top: -10px;
+    left: 14px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.75);
+    /* Tiny border on the label itself */
+}
+
+.subtitle-text {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.9rem;
+    margin-bottom: 2.5rem;
+}
+
+.btn-login {
+
+    background: linear-gradient(90deg, #FF9966 0%, #E100FF 100%);
+    box-shadow: 0 10px 30px rgba(225, 0, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    padding: 1rem;
+    margin-top: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.btn-login:hover {
+    background: linear-gradient(90deg, #FF9966 0%, #E100FF 100%);
+    box-shadow: 0 10px 30px rgba(225, 0, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Background Collage Grid */
+.bg-collage {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    z-index: -1;
+}
+
+.collage-item {
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.6) grayscale(20%);
+    /* Cinematic look */
+}
+
+.collage-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+}
+
+/* Ensure Modal pops */
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.auth-glass-modal {
+
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 24px;
+    padding: 3rem 2.5rem;
+    width: 100%;
+    max-width: 420px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+
+.label-pill {
+    background: #252526;
+    /* Matches the modal background exactly */
+    color: #999;
+}
+
+
+
+/* =========================================
+   Premium Signup Styling (Image Match)
+   ========================================= */
+.signup-modal {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+}
+
+.input-icon-group {
+    position: relative;
+    margin-bottom: 1.2rem;
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 1.3rem;
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+.input-icon-svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+}
+
+.input-icon-group {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.input-icon-group.icon-dark {
+    color: #111827;
+}
+
+.pass-toggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ccc;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.input-glass-icon {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3.2rem;
+    /* Left padding space for icon */
+    background: transparent;
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.input-glass-icon::placeholder {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 400;
+}
+
+.input-glass-icon:focus {
+    border-color: white;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.btn-signup-premium {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    border: none;
+    border-radius: 50px;
+    /* Specific Orange to Purple Gradient from Image */
+    background: linear-gradient(90deg, #FF9966 0%, #E100FF 100%);
+    box-shadow: 0 5px 20px rgba(225, 0, 255, 0.3);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: capitalize;
+}
+
+.btn-signup-premium:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(225, 0, 255, 0.5);
+}
+
+.signup-footer {
+    margin-top: 2rem;
+    color: #eee;
+    font-size: 0.95rem;
+}
+
+.signup-footer a {
+    color: #FF9966;
+    /* Matching Orange */
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* =========================================
+   NEON NOODLE SPECIFIC STYLES (Firebird Theme)
+   ========================================= */
+
+:root {
+    --neon-orange: #FF5E00;
+    --neon-green: #00FF94;
+    --neon-blue: #00C2FF;
+    --neon-bg: #050505;
+    /* Deep black for contrast */
+}
+
+/* Top Branding Bar */
+.neon-top-bar {
+    text-align: center;
+    padding: 1.5rem 0;
+    background: var(--neon-bg);
+}
+
+.neon-brand {
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    background: linear-gradient(to right, #FF8C42, #FF5E00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-transform: uppercase;
+}
+
+/* Firebird Hero Section */
+.firebird-hero {
+    position: relative;
+    height: 450px;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.firebird-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, #000 10%, transparent 80%);
+    z-index: 1;
+}
+
+.firebird-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: slowZoom 20s infinite alternate;
+}
+
+@keyframes slowZoom {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+.firebird-overlay-text {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+}
+
+.firebird-overlay-text h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: white;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    letter-spacing: -1px;
+}
+
+/* Neon Tabs */
+.neon-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    /* Hide scrollbar spacing */
+}
+
+.neon-tab-btn {
+    background: transparent;
+    border: 2px solid var(--neon-blue);
+    color: white;
+    padding: 0.6rem 1.4rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: 0.3s;
+    white-space: nowrap;
+    box-shadow: 0 0 10px rgba(0, 194, 255, 0.1);
+}
+
+.neon-tab-btn.active {
+    border-color: var(--neon-orange);
+    box-shadow: 0 0 15px rgba(255, 94, 0, 0.4);
+    background: rgba(255, 94, 0, 0.1);
+}
+
+.neon-tab-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(0, 194, 255, 0.4);
+}
+
+.neon-tab-btn.active:hover {
+    box-shadow: 0 0 20px rgba(255, 94, 0, 0.6);
+}
+
+/* Neon List Items */
+.neon-menu-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+.neon-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: transparent;
+    /* Clean look */
+    /* Mobile responsive: stack on very small screens? No, keep list */
+}
+
+.neon-img-container {
+    padding: 4px;
+    border-radius: 50%;
+    border: 2px solid var(--neon-orange);
+    /* Outer Ring */
+    box-shadow: 0 0 20px rgba(255, 94, 0, 0.3);
+    /* Orange Glow */
+    flex-shrink: 0;
+}
+
+.neon-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.neon-details {
+    flex: 1;
+}
+
+.neon-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 6px;
+}
+
+.neon-desc {
+    color: #9ca3af;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.neon-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+}
+
+.btn-neon-add {
+    background: transparent;
+    border: 2px solid var(--neon-green);
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 0 10px rgba(0, 255, 148, 0.2);
+    white-space: nowrap;
+}
+
+.btn-neon-add:hover {
+    background: rgba(0, 255, 148, 0.1);
+    box-shadow: 0 0 25px rgba(0, 255, 148, 0.6);
+    transform: scale(1.05);
+}
+
+/* Added State for Add to Cart Button */
+.btn-neon-add.added {
+    background: var(--neon-green);
+    color: #000;
+    border-color: var(--neon-green);
+    pointer-events: none;
+    box-shadow: 0 0 30px rgba(0, 255, 148, 0.8);
+    animation: successPulse 0.6s ease-out;
+}
+
+@keyframes successPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(0, 255, 148, 0.2);
+    }
+
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 40px rgba(0, 255, 148, 1);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 30px rgba(0, 255, 148, 0.8);
+    }
+}
+
+/* Floating View Cart Bar */
+.floating-cart-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(15, 15, 15, 0.95);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-top: 2px solid;
+    border-image: linear-gradient(90deg, var(--neon-orange), var(--neon-green), var(--neon-blue)) 1;
+    min-height: 88px;
+    padding: 1rem 2rem;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 -10px 40px rgba(0, 255, 148, 0.2);
+    animation: slideUpBar 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-bottom-spacer {
+    height: 18px;
+}
+
+.menu-bottom-spacer.with-cart-bar {
+    height: 130px;
+}
+
+.floating-cart-bar.show {
+    display: flex;
+}
+
+@keyframes slideUpBar {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Revolving Gradient Border for Cart Bar */
+.floating-cart-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg,
+            transparent,
+            var(--neon-orange),
+            var(--neon-green),
+            var(--neon-blue),
+            transparent);
+    background-size: 200% auto;
+    animation: revolvingGlow 3s linear infinite;
+}
+
+@keyframes revolvingGlow {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.cart-bar-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+.cart-bar-icon-wrapper {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--neon-orange), var(--neon-green));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: cartIconPulse 2s infinite;
+    box-shadow: 0 0 25px rgba(0, 255, 148, 0.6);
+}
+
+@keyframes cartIconPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 25px rgba(0, 255, 148, 0.6);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(255, 94, 0, 0.8);
+        transform: scale(1.05);
+    }
+}
+
+.cart-bar-icon-wrapper ion-icon {
+    font-size: 1.8rem;
+    color: #000;
+    font-weight: bold;
+}
+
+/* Premium View Cart Button with Shine Effect */
+.btn-view-cart {
+    background: linear-gradient(135deg, var(--neon-green), var(--neon-blue));
+    border: none;
+    color: #000;
+    padding: 0.9rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 5px 25px rgba(0, 255, 148, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-view-cart::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(45deg);
+    transition: 0.6s;
+    pointer-events: none;
+}
+
+.btn-view-cart:hover::after {
+    left: 100%;
+    top: 100%;
+}
+
+.btn-view-cart:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 40px rgba(0, 255, 148, 0.8), 0 0 20px rgba(0, 194, 255, 0.4);
+    background: linear-gradient(135deg, var(--neon-blue), var(--neon-green));
+}
+
+.cart-bar-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: linear-gradient(135deg, #FF0080, #FF3CAC);
+    color: white;
+    font-size: 0.75rem;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    border: 2px solid #000;
+    box-shadow: 0 2px 10px rgba(255, 0, 128, 0.6);
+    animation: badgeBounce 0.5s ease-out;
+}
+
+@keyframes badgeBounce {
+    0% {
+        transform: scale(0);
+    }
+
+    60% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.cart-bar-text {
+    color: white;
+}
+
+.cart-bar-text h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+    background: linear-gradient(90deg, var(--neon-orange), var(--neon-green));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.cart-bar-text p {
+    font-size: 0.85rem;
+    color: #999;
+    margin: 0;
+}
+
+.btn-view-cart {
+    background: linear-gradient(135deg, var(--neon-green), var(--neon-blue));
+    border: none;
+    color: #000;
+    padding: 0.9rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 5px 20px rgba(0, 255, 148, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.btn-view-cart:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 30px rgba(0, 255, 148, 0.7);
+    background: linear-gradient(135deg, var(--neon-blue), var(--neon-green));
+}
+
+.btn-view-cart ion-icon {
+    font-size: 1.2rem;
+}
+
+/* =========================================
+   LIGHT GLASS CART THEME (Requested Update)
+   ========================================= */
+
+/* Background for Cart Page specifically */
+body.cart-page-bg {
+    background: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=2000&q=80') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Overlay to blur/warm the background */
+body.cart-page-bg::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    /* Slight dim */
+    backdrop-filter: blur(20px);
+    /* Heavy blur for the 'Ambience' look */
+    z-index: -1;
+}
+
+/* Light Glass Card */
+.light-glass-card {
+    background: rgba(255, 255, 255, 0.45);
+    /* Milky white glass */
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    color: #1a1a1a;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.light-glass-card:hover {
+    background: rgba(255, 255, 255, 0.55);
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.light-glass-summary {
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(35px);
+    -webkit-backdrop-filter: blur(35px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 16px;
+    padding: 2.5rem;
+    color: white;
+    /* Summary text is white/light in the image on the right */
+    height: fit-content;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 100px;
+}
+
+/* Text Colors */
+.text-dark {
+    color: #1a1a1a;
+}
+
+.text-white-soft {
+    color: #f3f3f3;
+}
+
+/* Image Square */
+.cart-img-square-light {
+    width: 90px;
+    height: 90px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Quantity Controls (Light) */
+.qty-btn-light {
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #333;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.qty-btn-light:hover {
+    background: white;
+}
+
+.qty-display-light {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 12px;
+}
+
+/* Checkout Button Gradient (Global Premium Match) */
+.btn-checkout-orange {
+    background: linear-gradient(90deg, #FF9966 0%, #E100FF 100%);
+    /* Orange to Purple */
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(225, 0, 255, 0.4);
+    transition: 0.3s;
+}
+
+.btn-checkout-orange:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(225, 0, 255, 0.6);
+}
+
+/* Add More Items Button (Glass Style) */
+.btn-add-more {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    backdrop-filter: blur(10px);
+}
+
+.btn-add-more:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Summary Rows */
+.summary-row-light {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.summary-total-light {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: 700;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* =========================================
+   UPDATED PREMIUM BACKGROUND & CHECKOUT
+   ========================================= */
+
+/* Overriding Background with a richer, darker premium theme */
+body.cart-page-bg {
+    background: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed !important;
+    background-size: cover !important;
+}
+
+/* Darker overlay for better text contrast/neon pop */
+body.cart-page-bg::before {
+    background: rgba(0, 0, 0, 0.65) !important;
+    backdrop-filter: blur(12px) !important;
+}
+
+/* --- Checkout Grid --- */
+.checkout-grid-glass {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+/* Glass Section Headers */
+.glass-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.step-number {
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(135deg, #FF9966 0%, #E100FF 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 10px rgba(225, 0, 255, 0.3);
+}
+
+/* Glass Inputs */
+.glass-input-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.glass-input {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #1a1a1a;
+    transition: 0.3s;
+    outline: none;
+}
+
+.glass-input:focus {
+    background: #fff;
+    border-color: #FF9966;
+    box-shadow: 0 0 0 3px rgba(255, 153, 102, 0.25);
+}
+
+.glass-label {
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    background: #fff;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    color: #555;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Payment Options Grid */
+.payment-grid-glass {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1rem;
+    margin-bottom: 20px;
+}
+
+.payment-option-glass {
+    position: relative;
+    cursor: pointer;
+}
+
+.payment-option-glass input {
+    display: none;
+}
+
+.payment-card-box {
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: 0.3s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #1f2937;
+    font-weight: 600;
+}
+
+.payment-card-box ion-icon {
+    font-size: 2rem;
+    color: #444;
+    transition: 0.3s;
+}
+
+/* Selected State */
+.payment-option-glass input:checked+.payment-card-box {
+    background: #fff;
+    border-color: #E100FF;
+    box-shadow: 0 8px 20px rgba(225, 0, 255, 0.2);
+    color: #000;
+}
+
+.payment-option-glass input:checked+.payment-card-box span {
+    color: #000;
+}
+
+.payment-option-glass input:checked+.payment-card-box ion-icon {
+    color: #E100FF;
+}
+
+.payment-details-box {
+    margin-top: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
+    padding: 0.9rem;
+}
+
+.payment-app-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.6rem;
+}
+
+.upi-app-btn {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: rgba(255, 255, 255, 0.75);
+    color: #111827;
+    border-radius: 10px;
+    padding: 0.5rem 0.45rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.upi-app-btn.active {
+    background: #ffffff;
+    border-color: #E100FF;
+    box-shadow: 0 8px 16px rgba(225, 0, 255, 0.2);
+    color: #000;
+}
+
+.upi-logo {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.upi-logo.gpay {
+    background: #4285f4;
+}
+
+.upi-logo.phonepe {
+    background: #5f259f;
+}
+
+.upi-logo.paytm {
+    background: #00baf2;
+}
+
+/* Summary Row Item */
+.summary-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.summary-item-name {
+    font-weight: 500;
+    flex: 1;
+    margin-left: 12px;
+}
+
+.summary-item-qty {
+    background: rgba(255, 255, 255, 0.25);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.checkout-item-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* =========================================
+   ORDER CONFIRMATION - NEON CELEBRATION
+   ========================================= */
+
+/* Use .cart-page-bg for the base, but we add a confetti visual via CSS if possible, 
+   or just stick to the clean dark premium look with neon accents */
+
+.confirmation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 85vh;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.confirmation-wrapper {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 3rem;
+    border-radius: 24px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Glowing Success Icon */
+.success-icon-large {
+    font-size: 5rem;
+    color: #4CAF50;
+    /* Fallback */
+    color: #00ff88;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.6));
+    animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.6));
+    }
+
+    50% {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 35px rgba(0, 255, 136, 0.9));
+    }
+
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.6));
+    }
+}
+
+.order-title-neon {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(90deg, #fff, #00ff88);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+}
+
+.order-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+}
+
+/* Tracking Map Visual (CSS Only) */
+.tracking-map-visual {
+    width: 100%;
+    height: 150px;
+    background: #1a1a1a;
+    border-radius: 16px;
+    position: relative;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Map Grid Lines */
+.tracking-map-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.5;
+}
+
+/* The Path Line */
+.map-path {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    transform: translateY(-50%);
+}
+
+.map-path::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    /* Progress */
+    background: linear-gradient(90deg, #00ff88, #00ff88);
+    box-shadow: 0 0 10px #00ff88;
+    border-radius: 2px;
+    animation: load-path 3s ease-out forwards;
+}
+
+@keyframes load-path {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 50%;
+    }
+}
+
+/* The Rider Icon */
+.map-rider {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    /* Start Point */
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    color: #fff;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+    animation: move-rider 3s ease-out forwards;
+    z-index: 2;
+}
+
+@keyframes move-rider {
+    0% {
+        left: 10%;
+    }
+
+    100% {
+        left: 50%;
+    }
+}
+
+/* Order Details Card */
+.order-details-glass {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: left;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detail-row-shine {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detail-row-shine:last-child {
+    border-bottom: none;
+}
+
+.btn-track {
+    background: #00ff88;
+    color: #000;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+    transition: 0.3s;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.btn-track:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 40px rgba(0, 255, 136, 0.6);
+}
+
+.btn-home-ghost {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-home-ghost:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+}
+

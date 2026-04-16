@@ -1,0 +1,35 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    /* Core Dark Theme */
+    --bg-dark: #0B0E14;
+    --bg-card: #151A25;
+
+    /* Gradients */
+    --primary-gradient: linear-gradient(135deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+    --secondary-gradient: linear-gradient(135deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%);
+
+    --card-border-gradient: linear-gradient(135deg, #00F260 0%, #0575E6 100%);
+    --card-border-gradient-hover: linear-gradient(135deg, #FF0099 0%, #493240 100%);
+
+    /* Text */
+    --text-white: #ffffff;
+    --text-gray: #D1D5DB;
+
+    /* Accents */
+    --accent-green: #00E676;
+    --accent-pink: #FF4081;
+
+    /* Glass */
+    --nav-bg: rgba(21, 26, 37, 0.7);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Neon / Firebird Theme */
+:root {
+    --neon-orange: #FF5E00;
+    --neon-green: #00FF94;
+    --neon-blue: #00C2FF;
+    --neon-bg: #050505;
+}
